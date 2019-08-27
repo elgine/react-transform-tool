@@ -7,13 +7,6 @@ type ValueType<T extends keyof V, V> = V[T];
 
 interface Dictionary<T> {[name: string]: T}
 
-
-type CreateCanvasElementType = 'canvas';
-
-interface DocumentPolyfill{
-    createElement: (type: CreateCanvasElementType) => any;
-}
-
 type Constructor<T> = new (...args: any[]) => T;
 
 type Mat = number[];
