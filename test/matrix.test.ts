@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 import MyMatrix from '../src/maths/matrix';
+
 import { Matrix } from 'pixi.js';
+
+
 
 describe('matrix & pixi-matrix', () => {
     test('rotation', () => {
@@ -22,4 +25,12 @@ describe('matrix & pixi-matrix', () => {
 
         expect(mat).toStrictEqual(pixiMat.toArray(false));
     });
+
+    // test('compose', () => {
+
+    // });
+
+    // test('decompose', () => {
+
+    // });
 });
