@@ -1,0 +1,30 @@
+{
+    "include": [
+        "./src/**/*",
+        "./example/**/*",
+        "./test/**/*",
+        "./typings/**/*"
+    ],
+    "compilerOptions": {
+        "sourceMap": true,
+        "module": "es2015",
+        "target": "es5",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "noImplicitThis": false,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "allowJs": true,
+        "strict": true,
+        "jsx": "react",
+        "lib": [
+            "es2015",
+            "es2017",
+            "dom"
+        ]
+    },
+    "exclude": [
+        "build",
+        "node_modules"
+    ]
+}

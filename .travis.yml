@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "10"
+# Travis-CI Caching
+cache:
+  directories:
+    - node_modules
+
+install:
+  - yarn
+
+script:
+  - yarn test
+  - yarn run build
+
+branches:
+  only:
+    - master
