@@ -3,7 +3,7 @@ Transform tool component for `editor-like` application
 
 ## Install
     // Use yarn
-    yarn install
+    yarn add react-transform-tool
 
     // Use npm
     npm install react-transform-tool
@@ -23,6 +23,36 @@ Transform tool component for `editor-like` application
     <TransformTool
         value={value}
         onChange={setValue}
+        size={{
+            width: 120,
+            height: 120
+        }}
+        offset={{
+            left: 0,
+            top: 0
+        }}
+        classeNames={{
+            root: '',
+            anchor: {
+                base: '',
+                center: '',
+                rotator: ''
+            }
+        }}
+        styles={{
+            root: {},
+            anchor: {
+                base: {
+                    
+                },
+                center: {
+
+                },
+                rotator: {
+
+                }
+            }
+        }}
     />
 
 

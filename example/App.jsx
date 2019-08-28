@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react';
-import TransformTool from '../src/TransformTool';
+import ReactTransformTool from '../dist';
 import useResize from './useResize';
 
 const RECT_SIZE = {
@@ -7,7 +7,7 @@ const RECT_SIZE = {
     height: 120
 };
 
-const ROOT_STYLE: React.CSSProperties = {
+const ROOT_STYLE = {
     position: 'relative',
     backgroundColor: '#000',
     width: '100%',
@@ -15,7 +15,7 @@ const ROOT_STYLE: React.CSSProperties = {
     overflow: 'hidden'
 };
 
-const CANVAS_STYLE: React.CSSProperties = {
+const CANVAS_STYLE = {
     position: 'absolute'
 };
 
@@ -23,7 +23,7 @@ export default () => {
     const [resolution, setResolution] = useState([1024, 768]);
     const [offset, setOffset] = useState({ left: 0, top: 0 });
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
-    const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
+    const [canvas, setCanvas] = useState(null);
     const [matrix, setMatrix] = useState([
         1, 0, 0,
         0, 1, 0,
@@ -77,7 +77,7 @@ export default () => {
         }
     }, [canvas, matrix, canvasSize]);
 
-    const canvasStyle: React.CSSProperties = {
+    const canvasStyle = {
         ...CANVAS_STYLE,
         left: offset.left,
         top: offset.top
@@ -85,7 +85,7 @@ export default () => {
     return (
         <div style={ROOT_STYLE}>
             <canvas ref={setCanvas} style={canvasStyle}></canvas>
-            <TransformTool offset={offset} size={RECT_SIZE} value={matrix} onChange={setMatrix} />
+            <ReactTransformTool offset={offset} size={RECT_SIZE} value={matrix} onChange={setMatrix} />
         </div>
     );
 };
