@@ -9,9 +9,33 @@ cache:
 install:
   - yarn
 
-script:
-  - yarn test
-  - yarn run build
+stages: 
+  -test
+  -name: deploy
+
+jobs:
+  include: 
+    -stage: test
+      script:
+        - yarn test
+    -stage: deploy
+      script:
+        - yarn run build
+        - npm version parch
+      deploy:
+        - provider: pages
+          local-dir: docs
+          github-token: $GITHUB_TOKEN
+          skip-cleanup: true
+          keep-history: true
+          on:
+            branch: master
+        - provider: npm
+          email: 624157383@qq.com
+          api_key: $NPM_TOKEN,
+          skip_cleanup: true
+          on:
+            branch: master
 
 branches:
   only:
