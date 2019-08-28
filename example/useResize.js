@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-export default (dom: HTMLElement|null, interval: number = 100) => {
+export default (dom, interval = 100) => {
     dom = dom || document.body;
     const [lastWidth, setLastWidth] = useState(dom ? dom.offsetWidth : 0);
     const [lastHeight, setLastHeight] = useState(dom ? dom.offsetHeight : 0);

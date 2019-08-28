@@ -18,6 +18,14 @@ export const wrapRad = (v: number): number => {
     return v;
 };
 
+export const wrapInTwoPI = (v: number): number => {
+    v %= Math.PI * 2;
+    if (v < 0) {
+        return v + Math.PI * 2;
+    }
+    return v;
+};
+
 export const isRadBetween = (rad: number, start: number, end: number) => {
     if (start < 0) {
         start = wrapRad(start);

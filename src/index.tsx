@@ -1,1 +1,2 @@
-export { default as ReactTransformTool } from './TransformTool';
+import ReactTransformTool from './TransformTool';
+export default ReactTransformTool;

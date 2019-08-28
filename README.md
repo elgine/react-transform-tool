@@ -3,7 +3,7 @@ Transform tool component for `editor-like` application
 
 ## Install
     // Use yarn
-    yarn install
+    yarn add react-transform-tool
 
     // Use npm
     npm install react-transform-tool

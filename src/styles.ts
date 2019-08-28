@@ -43,6 +43,7 @@ export const ANCHOR_STYLE_CENTER: React.CSSProperties = {
 };
 
 export const ANCHOR_STYLE_ROTATOR: React.CSSProperties = {
+    ...ANCHOR_STYLE_BASE,
     top: '100%',
     left: '100%',
     marginLeft: ANCHOR_SIZE,
@@ -75,6 +76,5 @@ export const ANCHOR_STYLE_BOTTOM_RIGHT: React.CSSProperties = {
 
 export const ROOT_STYLE_BASE: React.CSSProperties = {
     position: 'absolute',
-    border: `1px dashed ${COLOR}`,
     boxSizing: 'border-box'
 };
