@@ -15,7 +15,7 @@ import {
 } from './styles';
 import useMovement from './hooks/useMovement';
 import Matrix from './maths/matrix';
-import { translate } from './apply';
+import { applyRotate, applyTranslate, applyScale } from './apply';
 import { toAngle } from './maths/angRad';
 
 export interface TransformToolProps extends Omit<React.HTMLAttributes<{}>, 'onChange'>{
@@ -92,15 +92,15 @@ export default ({ offset, size, value, onChange, style, ...others }: TransformTo
             };
             // Apply rotation
             if (anchorType === 'rotator') {
-
+                applyRotate(params);
             }
             // Apply translation
             else if (anchorType === 'center') {
-                translate(params);
+                applyTranslate(params);
             }
             // Apply scale
             else {
-
+                applyScale(params);
             }
 
             const m = matRef.current;

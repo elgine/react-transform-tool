@@ -11,15 +11,15 @@ export interface ApplyParams{
     rotation: number;
 }
 
-export const rotate = (params: ApplyParams) => {
+export const applyRotate = (params: ApplyParams) => {
 
 };
 
-export const scale = (params: ApplyParams) => {
+export const applyScale = (params: ApplyParams) => {
 
 };
 
-export const translate = (params: ApplyParams) => {
+export const applyTranslate = (params: ApplyParams) => {
     const { curPos, downPos, translation } = params;
     translation[0] += curPos.x - downPos.x;
     translation[1] += curPos.y - downPos.y;

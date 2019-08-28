@@ -416,8 +416,8 @@ export default class Matrix extends Array<number> {
      */
     static decompose(mat: Mat, out: Transform) {
         const a = mat[Matrix.M11];
-        const b = mat[Matrix.M12];
-        const c = mat[Matrix.M21];
+        const b = mat[Matrix.M21];
+        const c = mat[Matrix.M12];
         const d = mat[Matrix.M22];
         const skewX = -Math.atan2(-c, d);
         const skewY = Math.atan2(b, a);

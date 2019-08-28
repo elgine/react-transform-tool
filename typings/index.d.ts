@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/class-name-casing */
 type AnyOf<T> = {
     [K in keyof T]?: T[K];
 };
@@ -5,6 +6,7 @@ type AnyOf<T> = {
 type ValueType<T extends keyof V, V> = V[T];
 
 interface Dictionary<T> {[name: string]: T}
+
 type Constructor<T> = new (...args: any[]) => T;
 
 type Mat = number[];
