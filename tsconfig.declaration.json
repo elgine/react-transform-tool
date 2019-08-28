@@ -1,12 +1,14 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
+        "outDir": "dist",
         "emitDeclarationOnly": true,
         "declaration": true,
-        "outFile": "dist/index.d.ts"
+        "target": "esnext",
+        "module": "commonjs",
     },
     "exclude": [
-        "example",
-        "test"
+        "test/**/*",
+        "example/**/*"
     ]
 }
