@@ -39,6 +39,7 @@ export interface TransformToolStyles{
 
 export interface TransformToolProps extends Omit<React.HTMLAttributes<{}>, 'onChange' | 'className' | 'style'>{
     size: Size;
+    minSize?: Size;
     value: Mat;
     classNames?: TransformToolClassNames;
     styles?: TransformToolStyles;
@@ -47,10 +48,11 @@ export interface TransformToolProps extends Omit<React.HTMLAttributes<{}>, 'onCh
 }
 
 export default ({
-    classNames, styles,
+    classNames, styles, minSize,
     offset, size, value, onChange,
     ...others
 }: TransformToolProps) => {
+    const ms = minSize || { width: 5, height: 5 };
     const o = offset || { left: 0, top: 0 };
     const rootRef = useRef<HTMLDivElement>(null);
     const [translation, setTranslation] = useState([0, 0]);
@@ -114,6 +116,7 @@ export default ({
                 scale: lastScale.slice(),
                 rotation: lastRotation,
                 size,
+                minSize: ms,
                 matrix: lastMatRef.current,
                 downPos: anchorHook.downPos,
                 curPos: anchorHook.curPos
@@ -152,6 +155,7 @@ export default ({
         lastScale,
         lastRotation,
         size,
+        ms,
         onChange
     ]);
 
