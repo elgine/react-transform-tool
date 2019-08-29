@@ -1,9 +1,11 @@
 import Vector from './maths/vector';
 import Matrix from './maths/matrix';
+import { clamp } from 'lodash';
 
 export interface ApplyParams{
     anchorType: AnchorType;
     size: Size;
+    minSize: Size;
     relative: {left: number; top: number};
     offset: {left: number; top: number};
     downPos: Point;
@@ -93,7 +95,7 @@ export const applyRotate = (params: ApplyParams) => {
 export const applyScale = (params: ApplyParams) => {
     const anchor = getAnchorPoint(params);
     const localAnchor = getAnchorPoint(params, false);
-    const { anchorType, curPos, downPos, rotation, translation, scale, size } = params;
+    const { anchorType, curPos, downPos, rotation, translation, scale, minSize, size } = params;
     const v = [
         curPos.x - downPos.x,
         curPos.y - downPos.y
@@ -117,8 +119,8 @@ export const applyScale = (params: ApplyParams) => {
     const actualWidth = size.width * scale[0];
     const actualHeight = size.height * scale[1];
     const s = [
-        1 + v[0] / actualWidth,
-        1 + v[1] / actualHeight
+        clamp(actualWidth + v[0], minSize.width, Number.MAX_SAFE_INTEGER) / actualWidth,
+        clamp(actualHeight + v[1], minSize.height, Number.MAX_SAFE_INTEGER) / actualHeight
     ];
 
     scale[0] *= s[0];
